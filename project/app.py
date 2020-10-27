@@ -1,8 +1,11 @@
 import sqlite3
-from flask import Flask, g, render_template
+from flask import Flask, g, render_template, request, session, flash, redirect, url_for
 
 # configuration
 DATABASE = "flaskr.db"
+USERNAME = "admin"
+PASSWORD = "admin"
+SECRET_KEY = "change_me"
 
 # create and initialize a new Flask app
 app = Flask(__name__)
