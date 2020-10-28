@@ -32,6 +32,20 @@ def logout(client):
     """Logout helper function"""
     return client.get("/logout", follow_redirects=True)
 
+def test_search(client):
+    """Ensure search returns"""
+    login(client, app.config["USERNAME"], app.config["PASSWORD"])
+    rv = client.post(
+        "/add",
+        data=dict(title="<Hello>", text="<strong>HTML</strong> allowed here"),
+        follow_redirects=True,
+    )
+    assert b"No entries here so far" not in rv.data
+    assert b"&lt;Hello&gt;" in rv.data
+    assert b"<strong>HTML</strong> allowed here" in rv.data
+    rv = client.get("/search/?query=HTML")
+    assert b"<strong>HTML</strong> allowed here" in rv.data
+
 
 def test_index(client):
     response = client.get("/", content_type="html/text")
