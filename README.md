@@ -1,5 +1,8 @@
 # ECE444-F2020-Lab6
 
+##Tests for Chef Co-Pilot
+[link to chef co-pilot tests](https://github.com/ECE444-2020Fall/project1-webapp-group16-flaskandfurious/blob/cfb91d6533651f8fdb8e97e9b3a0c7f6b6d1c063/app/tests/app_test.py#L16-L38)
+
 ## Pros and Cons of TDD
 
 ### Pros
